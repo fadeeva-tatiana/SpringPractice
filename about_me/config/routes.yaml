@@ -1,0 +1,3 @@
+#index:
+#    path: /mypage
+#    controller: App\Controller\mypage::index
