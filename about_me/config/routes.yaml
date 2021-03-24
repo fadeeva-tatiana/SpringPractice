@@ -1,3 +1,3 @@
-index:
-   path: /mypage
-   controller: App\Controller\mypage::index
+page:
+   path: / 
+   controller: App\Controller\PageController::page
