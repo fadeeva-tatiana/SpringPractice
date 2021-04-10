@@ -1,0 +1,22 @@
+.content
+{
+     display: flex; 
+     width: 100%;
+     background-color: #44c5ec;
+}
+.content__templates
+{
+    display: inline;
+    display: flex;
+    height: 175px;
+    justify-content:space-evenly;
+    background-color: rgb(230, 49, 220);
+}
+
+.item
+{
+    width: 400px;
+    display: inline-block;
+    background-color: #440093;
+}
+
