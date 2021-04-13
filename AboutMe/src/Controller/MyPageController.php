@@ -5,7 +5,7 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class MyController extends AbstractController
+class MyPageController extends AbstractController
 {
     public function page(): Response
     {
