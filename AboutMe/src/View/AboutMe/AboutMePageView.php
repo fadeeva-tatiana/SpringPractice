@@ -10,7 +10,6 @@ class AboutMePageView
     public function __construct(HobbieService $hobbies)
     {
         $result = [
-            'test' => debug_zval_dump($hobbies->getHobbies()[0]->getPhotos()),
             'hobbies' => [],
         ];
 

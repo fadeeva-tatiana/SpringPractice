@@ -9,7 +9,15 @@ class ImageProvider
     private const QUANTITY_PHOTOS = 5;
     public function getPhotos(string $search): array
     {
-        $urls = ImageSpider::find($search);
-        return array_rand($urls, self::QUANTITY_PHOTOS);
+        $images = ImageSpider::find($search);
+        $result = [];
+        shuffle($images);
+
+        for ($i = 0; $i <= self::QUANTITY_PHOTOS; ++$i)
+        { 
+            $result[] = $images[$i]; 
+        }
+
+        return $result;
     } 
 }

@@ -13,18 +13,7 @@ class MyPageController extends AbstractController
     {
         $hobbies = new HobbieService();
         $view = new AboutMePageView($hobbies);
-        $h = [
-            'hobbies' => [
-                [
-                    'title' => '1',
-                    'photos' => [1,2,3],
-                ],
-                [
-                    'title' => '1',
-                    'photos' => [1,2,3],
-                ]
-            ]
-        ];
+
         return $this->render('mypage.html.twig', $view->getOptions());
     }
 }
