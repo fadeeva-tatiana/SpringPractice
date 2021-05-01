@@ -4,7 +4,7 @@ namespace App\Modules\AboutMe\Model;
 
 class Hobbie
 {
-    private string $title = "";
+    private string $title;
     private array $photos = [];
 
     public function __construct(string $title, array $photos)
