@@ -63,3 +63,8 @@
 {
     font: italic 28px/1.5 "Georgia", serif;
 }
+
+.clear
+{
+    clear: both;
+}
