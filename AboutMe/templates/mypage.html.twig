@@ -4,17 +4,17 @@
     <meta  charset = " UTF-8 " />
     <meta  http-Equiv = " X-UA-Compatible "  content = " IE = edge " />
     <meta  name = " viewport "  content = " width = device-width, initial-scale = 1.0 " />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}" media="all"/>
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}" media="all"/>
     <title > Фадеева Татьяна </title>
   <body>
     <div class="background">
-        <img src = " {{asset ( 'image/background.jpg' )}} "  alt="fon" />
+        <img src = " {{ asset('image/background.jpg') }} "  alt="fon" />
     </div>
     <h1 class="FIO">Фадеева Татьяна Александровна</h1>
     <div class="content">
       <div class="content__first">
         <div class="first__foto">
-          <img src="{{asset ( 'image/me1.jpg' )}} "  alt = "Моя фотография"/>
+          <img src="{{ asset('image/me1.jpg') }} "  alt = "Моя фотография"/>
         </div>
         <div class="contacts">
           <p class="contacts__title title">Контактная информация</p>
