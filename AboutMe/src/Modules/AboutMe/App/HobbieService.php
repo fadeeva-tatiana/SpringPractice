@@ -1,4 +1,4 @@
-<?php
+<?php  // Unit 
 
 namespace App\Modules\App;
 
@@ -6,13 +6,13 @@ use App\Modules\AboutMe\Infrastructure\HobbiesRepository;
 use App\Modules\AboutMe\Model\Hobbie;
 use App\Modules\AboutMe\Infrastructure\ImageProvider;
 
-class HobbieService
+class HobbieService //создает массив адекватных данных из картинок и названий
 {
-    private array $hobbies = [];
+    private array $hobbies = [];  //var
 
     public function __construct()
     {
-        foreach (HobbiesRepository::getHobbiesMap() as $value)
+        foreach (HobbiesRepository::getHobbiesMap() as $value) //получить список хобби-заголовков 
         {
             $this->addHobbie($value);
         }
@@ -26,8 +26,8 @@ class HobbieService
     public function addHobbie(string $title): void
     {
         $imageProvider = new ImageProvider();
-        $photos = $imageProvider->getPhotos($title);
-        $hobbie = new Hobbie($title, $photos);
-        $this->hobbies[] = $hobbie;
+        $photos = $imageProvider->getPhotos($title); //даст массив картинок по заголовку
+        $hobbie = new Hobbie($title, $photos);      //заполнили объект заголовком и картинкой
+        $this->hobbies[] = $hobbie;                 // добавляем увлечения в множество-массив?
     }
 }

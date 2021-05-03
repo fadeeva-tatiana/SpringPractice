@@ -4,14 +4,12 @@ namespace App\Modules\AboutMe\Infrastructure;
 
 class HobbiesRepository
 {
-    public static function getHobbiesMap(): array
+    public static function getHobbiesMap(): array //хранит массив заголовков
     {
         return [
             'Программирование',
-            'PHP',
-            'Symfony',
-            'Linux',
-            'Assembler',
+            'Котики',
+            'Мемы',
         ];
     }
 }
