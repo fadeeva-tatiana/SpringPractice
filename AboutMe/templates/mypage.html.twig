@@ -35,51 +35,26 @@
         </div>
       </div>
      
-    <div class="content__second">
-      <p class="title">
-        Раздел о себе
-      </p>
-      <p>
-        Привет! Меня зовут Фадеева Татьяна. Я живу и учусь в г.Йошкар-Ола. Меня всегда привлекала наша республика и город, в частности. Именно поэтому я решила, что хочу учиться именно здесь. До Волгатеха (а именно с 1 по 8 класс) я училась в МБОУ СОШ № 27, где меня научили, в первую очередь, стремиться к знаниям. Все предметы нам преподносили со страстным увлечением, что вдохновляло нас впитывать всё больше. Далее я поступила в Многопрофильный лицей-интернат, в котором я проучилась весь 9 класс. Там я училась в физмат классе в информационно-технологической подгруппе. Мы углубленно изучали профильные предметы , но не занимались программированием, именно поэтому после 9 класса я решила поступить в Высший колледж "Политехник" на специальность "Информационные системы и программирование". И совсем вскоре, я поступила на ФИиВТ. Я очень рада, что поступила именно в Волгатех, ведь я осталась в прекрасном городе,не потеряв связь со своими прежними знакомыми. При этом , обучаясь на интересной мне специальности)  
-      </p> 
-      <p class="title">Раздел про хобби и увлечения вне учебы</p>
-      <p>
-        Помимо учёбы, я увлекаюсь чтением книг, особенно меня увлекает нон-фикшн формат. С 2016 года я занимаюсь волонтерской деятельностью, которая, в том числе, предполагает организацию различных мероприятий. Также мне нравится вожатская деятельность, ведь благодаря ей любая работа в команде становится по плечу.
-      </p>
-    </div>
-    <div class="clear"></div>
+    
 
     <div class="secondTask">
     <div class="Hobbie">
       {% for hobbie in hobbies %} 
           <h2>{{ hobbie.title }}</h2>
-          <div class="block-for-slider" id="block-for-slider">
-            <div id="viewport">
-              <ul id="slidewrapper">
+          <div class="slider" id="slider-{{ hobbie.title }}">
+            <div class="slider__elements">
               {% for photo in hobbie.photos %}
-                <li class="slide">
+                <div class="slider-item item-{{ loop.index }}">
                   <img src="{{ photo }}" alt="NotFound" class="slide-img">
-                </li>
+                </div>
               {% endfor %}
-              </ul>
-
-              <div id="prev-next-btns">
-                <div id="prev-btn"></div>
-                <div id="next-btn"></div>
-              </div>
-
-              <ul id="nav-btns">
-              {% for photo in hobbie.photos %}
-                <li class="slide-nav-btn"></li>
-              {% endfor %}
-              </ul>
             </div>
-          </div>  
+          </div>
       {% endfor %}
     </div>
   </div>
   <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
   <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('build/vendors-node_modules_core-js_modules_web_timers_js-node_modules_jquery_dist_jquery_js.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_num-53feb8.js') }}"></script>
 </body>
 </html>  
