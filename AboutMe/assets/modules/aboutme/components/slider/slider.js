@@ -1,94 +1,73 @@
-require("./slider.css");
+require('./slider.css');
+var slideNow = 1;
+var slideCount = $('#slidewrapper').children().length;
+var slideInterval = 3000;
+var navBtnId = 0;
+var translateWidth = 0;
 
-export default class slider {
-    constructor(id) {
-        this.id = id;
-        this.slider = document.getElementById(this.id);
-        this.countItems = this.slider.getElementsByClassName("slider-item").length;
-        this.sliderItems = [];
-        this.timeSlide = 7000;
+$(document).ready(function() {
+    var switchInterval = setInterval(nextSlide, slideInterval);
 
-        this.initSlider();
-    }
+    $('#viewport').hover(function() {
+        clearInterval(switchInterval);
+    }, function() {
+        switchInterval = setInterval(nextSlide, slideInterval);
+    });
 
-    initSlider() {
-        for (let index = 1; index <= this.countItems; index++) {
-            this.sliderItems.push(this.slider.getElementsByClassName('item-' + index)[0]);
-            this.sliderItems[index - 1].style.order = index;
-            if (index > 1) {
-                this.sliderItems[index - 1].style.display = "none";
-            }
+    $('#next-btn').click(function() {
+        nextSlide();
+    });
+
+    $('#prev-btn').click(function() {
+        prevSlide();
+    });
+
+    $('.slide-nav-btn').click(function() {
+        navBtnId = $(this).index();
+
+        if (navBtnId + 1 != slideNow) {
+            translateWidth = -$('#viewport').width() * (navBtnId);
+            $('#slidewrapper').css({
+                'transform': 'translate(' + translateWidth + 'px, 0)',
+                '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+                '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+            });
+            slideNow = navBtnId + 1;
         }
+    });
+});
 
-        setTimeout(this.hide, this.timeSlide - 1000, this.sliderItems[0]);
-        setInterval(this.nextSlide, this.timeSlide, this);
-    }
-
-    nextSlide(context) {
-        for (let index = 1; index <= context.countItems; index++) {
-            let currentOrderStyle = context.sliderItems[index - 1].style.order;
-            var currentOrderNum =
-                Number(currentOrderStyle[currentOrderStyle.length - 1]) + 1;
-
-            if (currentOrderNum > context.countItems) {
-                currentOrderNum = 1;
-            }
-
-            context.sliderItems[index - 1].style.order = currentOrderNum;
-
-            if (currentOrderNum === 1) {
-                context.sliderItems[index - 1].style.display = "block";
-                context.show(context.sliderItems[index - 1]);
-                setTimeout(
-                    context.hide,
-                    context.timeSlide - 1000,
-                    context.sliderItems[index - 1]
-                );
-            } else {
-                context.sliderItems[index - 1].style.display = "none";
-                context.sliderItems[index - 1].classList.remove("b-show");
-                context.sliderItems[index - 1].classList.remove("b-hide");
-            }
-        }
-    }
-
-    prevSlide(context) {
-        for (let index = context.countItems; index >= 1; index--) {
-            let currentOrderStyle = context.sliderItems[index - 1].style.order;
-            var currentOrderNum =
-                Number(currentOrderStyle[currentOrderStyle.length - 1]) - 1;
-
-            if (currentOrderNum < 1) {
-                currentOrderNum = context.countItems;
-            }
-
-            context.sliderItems[index - 1].style.order = currentOrderNum;
-
-            if (currentOrderNum === 1) {
-                context.sliderItems[index - 1].style.display = "block";
-                context.show(context.sliderItems[index - 1]);
-                setTimeout(context.hide, timeSlide - 1000, context.sliderItems[index - 1]);
-            } else {
-                context.sliderItems[index - 1].style.display = "none";
-                context.sliderItems[index - 1].classList.remove("b-show");
-                context.sliderItems[index - 1].classList.remove("b-hide");
-            }
-        }
-    }
-
-    show(item) {
-        item.classList.add("b-show");
-    }
-
-    hide(item) {
-        item.classList.add("b-hide");
+function nextSlide() {
+    if (slideNow == slideCount || slideNow <= 0 || slideNow > slideCount) {
+        $('#slidewrapper').css('transform', 'translate(0, 0)');
+        slideNow = 1;
+    } else {
+        translateWidth = -$('#viewport').width() * (slideNow);
+        $('#slidewrapper').css({
+            'transform': 'translate(' + translateWidth + 'px, 0)',
+            '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+            '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+        });
+        slideNow++;
     }
 }
 
-let items = document.getElementsByClassName("slider");
-
-let slider = [];
-
-items.forEach(element => {
-    slider.push(new slider(element.id));
-});
+function prevSlide() {
+    if (slideNow == 1 || slideNow <= 0 || slideNow > slideCount) {
+        translateWidth = -$('#viewport').width() * (slideCount - 1);
+        $('#slidewrapper').css({
+            'transform': 'translate(' + translateWidth + 'px, 0)',
+            '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+            '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+        });
+        slideNow = slideCount;
+    } else {
+        translateWidth = -$('#viewport').width() * (slideNow - 2);
+        $('#slidewrapper').css({
+            'transform': 'translate(' + translateWidth + 'px, 0)',
+            '-webkit-transform': 'translate(' + translateWidth + 'px, 0)',
+            '-ms-transform': 'translate(' + translateWidth + 'px, 0)',
+        });
+        slideNow--;
+    }
+}
