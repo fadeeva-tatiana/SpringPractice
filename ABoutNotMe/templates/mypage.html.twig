@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = "ru">
+<head>
+    <meta  charset = " UTF-8 " />
+    <meta  http-Equiv = " X-UA-Compatible "  content = " IE = edge " />
+    <meta  name = " viewport "  content = " width = device-width, initial-scale = 1.0 " />
+    <link rel="stylesheet" href="{{ asset('build/app.css') }}" media="all"/>
+    <link rel="shortcut icon" href="{{ asset('/image/favicon.ico') }}" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <title > Моя визитка с увлечениями </title>
+  <body>
+    <div class="background">
+        <img src = " {{ asset('image/background.jpg') }} "  alt="fon" />
+    </div>
+    <h1 class="FIO">Фадеева Татьяна Александровна</h1>
+    <div class="content">
+      <div class="content__first">
+        <div class="first__foto">
+          <img src="{{ asset('image/me1.jpg') }} "  alt = "Моя фотография"/>
+        </div>
+        <div class="contacts">
+          <p class="contacts__title title">Контактная информация</p>
+          <ul>
+            <li ><a class="list__link" href = "https://vk.com/bright.fire" target="_blank"> Страница ВКонтакте </a></li>
+            <li><a class="list__link" href="mailto:tatianafadeevaalek@gmail.com">Электронная почта</a></li>
+            <li>Телефон: 89278818007</li> 
+          </ul>
+        </div>
+        <div class="local">
+          <p class="local__title title">Мои любимые места в РМЭ</p>
+          <ol>
+            <li>Табашинское озеро</li>
+            <li>Национальный парк "Марий Чодра" </li>
+            <li>Сосновая роща</li> 
+          </ol>
+        </div>
+      </div>
+
+    <div class="secondTask">
+    <div class="Hobbie">
+      {% for hobbie in hobbies %} 
+          <p>{{ hobbie.title }}</p>
+          <div class="block-for-slider" id="block-for-slider">
+            <div id="viewport">
+              <ul id="slidewrapper">
+              {% for photo in hobbie.photos %}
+                <li class="slide">
+                  <img src="{{ photo }}" alt="NotFound" class="slide-img">
+                </li>
+              {% endfor %}
+              </ul>
+
+              <div id="prev-next-btns">
+                <div id="prev-btn"></div>
+                <div id="next-btn"></div>
+              </div>
+
+              <ul id="nav-btns">
+              {% for photo in hobbie.photos %}
+                <li class="slide-nav-btn"></li>
+              {% endfor %}
+              </ul>
+            </div>
+          </div>  
+      {% endfor %}
+    </div>
+  </div>
+  <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('build/vendors-node_modules_core-js_modules_web_timers_js-node_modules_jquery_dist_jquery_js.js') }}"></script>
+</body>
+</html>  

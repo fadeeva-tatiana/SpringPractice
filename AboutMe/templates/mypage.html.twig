@@ -5,6 +5,7 @@
     <meta  http-Equiv = " X-UA-Compatible "  content = " IE = edge " />
     <meta  name = " viewport "  content = " width = device-width, initial-scale = 1.0 " />
     <link rel="stylesheet" href="{{ asset('build/app.css') }}" media="all"/>
+    <link rel="shortcut icon" href="{{ asset('/image/favicon.ico') }}" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title > Фадеева Татьяна </title>
   <body>
@@ -21,8 +22,7 @@
           <p class="contacts__title title">Контактная информация</p>
           <ul>
             <li ><a class="list__link" href = "https://vk.com/bright.fire" target="_blank"> Страница ВКонтакте </a></li>
-            <li><a class="list__link" href="mailto:tatianafadeevaalek@gmail.com">Электронная почта</a></li>
-            <li>Телефон: 89278818007</li> 
+            <li><a class="list__link" href="mailto:tatianafadeevaalek@gmail.com">Электронная почта</a></li> 
           </ul>
         </div>
         <div class="local">
@@ -34,27 +34,29 @@
           </ol>
         </div>
       </div>
-     
-    
-
     <div class="secondTask">
     <div class="Hobbie">
-      {% for hobbie in hobbies %} 
-          <h2>{{ hobbie.title }}</h2>
-          <div class="slider" id="slider-{{ hobbie.title }}">
-            <div class="slider__elements">
+      {% for hobbie in hobbies %}
+      <h2 class="title" >{{ hobbie.title }}</h2>
+      <div id="block-for-slider">
+        <div id="viewport">
+            <ul id="slidewrapper">
               {% for photo in hobbie.photos %}
-                <div class="slider-item item-{{ loop.index }}">
-                  <img src="{{ photo }}" alt="NotFound" class="slide-img">
-                </div>
+                <li class="slide"><img src="{{ photo }}" alt="1" class="slide-img"></li>
               {% endfor %}
+            </ul>
+
+            <div id="prev-next-btns">
+                <div id="prev-btn"></div>
+                <div id="next-btn"></div>
             </div>
-          </div>
+        </div>
+      </div> 
       {% endfor %}
     </div>
   </div>
   <script type="text/javascript" src="{{ asset('build/app.js') }}"></script>
   <script type="text/javascript" src="{{ asset('build/runtime.js') }}"></script>
-  <script type="text/javascript" src="{{ asset('build/vendors-node_modules_core-js_modules_es_array_for-each_js-node_modules_core-js_modules_es_num-53feb8.js') }}"></script>
+  <script type="text/javascript" src="{{ asset('build/vendors-node_modules_core-js_modules_web_timers_js-node_modules_jquery_dist_jquery_js.js') }}"></script>
 </body>
 </html>  

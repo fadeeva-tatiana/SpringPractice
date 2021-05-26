@@ -2,9 +2,10 @@
 
 namespace App\Modules\AboutMe\Infrastructure;
 
+use App\Modules\AboutMe\App\ImageProviderInterface;
 use IvanUskov\ImageSpider\ImageSpider;                  // фабрика по производству конфет
 
-class ImageProvider                                     //фантик
+class ImageProvider implements ImageProviderInterface   //фантик
 {
     private const QUANTITY_PHOTOS = 4;                  //количество конфеток в фантике (количество картинок в полосочке) 
     public function getPhotos(string $search): array    //Упаковываем конфету в фантик со кусом search (По заголовку ищет картинки и выдает)
