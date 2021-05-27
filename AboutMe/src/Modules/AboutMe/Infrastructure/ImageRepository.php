@@ -15,11 +15,19 @@ class ImageRepository implements ImageRepositoryInterface
 
     public function __construct(EntityManagerInterface $main)
     {
-        $this->manager = $main;
-        $this->repository = $this->manager->getRepository(Image::class);
+        $this->manager = $main;                                              
+        $this->repository = $this->manager->getRepository(Image::class);    //получение таблицы картинок из базы
     }
     //добавить удаление 
-    //получение
     //изменение
+    public function addPhoto(Image $image): void
+    {
 
+    }
+    public function getPhotos(string $title): ?array
+    {
+        return $this->repository->findBy([
+            'keyword' => $title,
+        ]);
+    }
 }

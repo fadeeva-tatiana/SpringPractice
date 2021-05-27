@@ -15,4 +15,10 @@ class AboutMeController extends AbstractController
 
         return $this->render('mypage.html.twig', $view->getOptions()); 
     }
+
+    public function update(HobbieService $hobbies): Response
+    {
+        // вызвать обновление картинок в HSer
+        return new Response('OK');
+    }
 }

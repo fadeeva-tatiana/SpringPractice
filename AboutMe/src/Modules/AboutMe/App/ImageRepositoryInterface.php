@@ -4,8 +4,8 @@ namespace App\Modules\AboutMe\App;
 
 class ImageRepositoryInterface
 {
-    //функции, которые в IR нужно добавить:
+    //функции, которые в IR(App) нужно добавить:
     //add
     //delete
-    //get
+    //public function getPhotos(string $keyword): ?array
 }

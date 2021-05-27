@@ -1,3 +1,8 @@
 mypage:
     path: /
     controller: App\Controller\AboutMeController::page
+    method: GET
+
+    path: /update
+    controller: App\Controller\AboutMeController::update
+    method: POST 
