@@ -1,3 +1,0 @@
-mypage:
-    path: /
-    controller: App\Controller\AboutMeController::page
