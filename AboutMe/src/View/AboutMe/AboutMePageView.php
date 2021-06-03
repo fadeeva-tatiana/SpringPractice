@@ -15,9 +15,15 @@ class AboutMePageView
 
         foreach ($hobbies as $value)  //создает нормальные наборы
         {
+            $photos = [];
+            foreach ($value->getPhotos() as $img)
+            {
+                $photos[] = $img->getUrl();    
+            }
+            
             $result['hobbies'][] = [
                 'title' => $value->getTitle(),
-                'photos' => $value->getPhotos(),
+                'photos' => $photos,
             ];
         }
 

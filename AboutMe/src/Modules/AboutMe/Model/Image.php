@@ -10,9 +10,8 @@ class Image
     private string $keyword;
     private string $url;
 
-    public function __construct(int $id, string $keyword, string $url)
+    public function __construct(string $keyword, string $url)
     {
-        $this->id = $id;
         $this->keyword = $keyword;
         $this->url = $url;
     }

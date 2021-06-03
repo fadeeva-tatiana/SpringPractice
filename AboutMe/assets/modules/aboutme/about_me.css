@@ -21,12 +21,14 @@
     z-index: -999; 
     object-fit: cover;
 }
+
 .content
 {
     margin-left: 75px;
     margin-right: 50px;
-    background-color: tomato;
+    display: flex;
 }
+
 .first__foto img
 {
     border-radius: 5000px; /* Радиус скругления */
@@ -35,26 +37,22 @@
     height: 250px;
     object-fit: cover;
 }
+
 .content__first
 {
-    float: left;
-    /* background-color: teal; */
-    height: 80%;
+    height : 80%;
+    display: inline-block;
+}
 
+.secondTask
+{
+    display: inline-block;
 }
-.Hobbie{
-    /* margin: 50px; */
-}
-/* .content__second */
-/* { */
-    /* display: inline-block; */
-    /* width: 550px; */
-    /* margin: 80px 0 0 50px; */
-    /* background-color: yellow; */
-/* } */
+
 .title
 {
-    color: #b66262;
+    /* color: #b66262; */
+    color: #670065;
     margin: left;
 }
 
@@ -62,6 +60,7 @@
 {
     text-decoration: none;   
 }
+
 .title
 {
     font: italic 28px/1.5 "Georgia", serif;

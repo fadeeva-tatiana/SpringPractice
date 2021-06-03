@@ -2,10 +2,9 @@
 
 namespace App\Modules\AboutMe\App;
 
-class ImageRepositoryInterface
+interface ImageRepositoryInterface
 {
     //функции, которые в IR(App) нужно добавить:
-    //add
-    //delete
-    //public function getPhotos(string $keyword): ?array
+    public function update(string $keyword, array $images): void;
+    public function get(string $keyword): ?array;
 }

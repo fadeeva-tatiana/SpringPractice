@@ -1,8 +1,9 @@
-mypage:
+index:
     path: /
     controller: App\Controller\AboutMeController::page
-    method: GET
+    methods: GET 
 
+update:
     path: /update
     controller: App\Controller\AboutMeController::update
-    method: POST 
+    methods: POST

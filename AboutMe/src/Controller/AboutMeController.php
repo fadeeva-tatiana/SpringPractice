@@ -19,6 +19,8 @@ class AboutMeController extends AbstractController
     public function update(HobbieService $hobbies): Response
     {
         // вызвать обновление картинок в HSer
+        $hobbies->update();
+        
         return new Response('OK');
     }
 }
