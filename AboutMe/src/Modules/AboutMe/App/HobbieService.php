@@ -38,7 +38,7 @@ class HobbieService //создает массив адекватных данн�
         return $images;
     }
 
-    public function addHobbie(string $title): void
+    private function addHobbie(string $title): void
     {
         $photos = $this->getImages($title);         //даст массив картинок по заголовку 
         $hobbie = new Hobbie($title, $photos);      //заполнили объект заголовком и картинкой

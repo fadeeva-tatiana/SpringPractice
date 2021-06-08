@@ -13,9 +13,9 @@ class ImageRepository implements ImageRepositoryInterface
     private ObjectRepository $repository;
     private EntityManagerInterface $manager;
 
-    public function __construct(EntityManagerInterface $main)
+    public function __construct(EntityManagerInterface $manager)
     {
-        $this->manager = $main;                                              
+        $this->manager = $manager;                                              
         $this->repository = $this->manager->getRepository(Image::class);    //получение таблицы картинок из базы
     }
     

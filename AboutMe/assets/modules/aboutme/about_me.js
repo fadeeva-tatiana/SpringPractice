@@ -9,9 +9,7 @@ updateBtn.addEventListener('click', async () => {
         body: JSON.stringify({})
     });
     
-    let result = await request;
-
-    if (result.status === 200) {
+    if (request.status === 200) {
         location.reload();
     } else {
         alert("Ошибка");
