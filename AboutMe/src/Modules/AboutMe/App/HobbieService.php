@@ -45,7 +45,7 @@ class HobbieService //создает массив адекватных данн�
         $this->hobbies[] = $hobbie;                 // добавляем увлечения в множество-массив?
     }
 
-    public function update(): void
+    private function update(): void
     {
         foreach ($this->getHobbies() as $hobby)
         {
